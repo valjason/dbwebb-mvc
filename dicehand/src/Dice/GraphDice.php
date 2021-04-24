@@ -3,20 +3,10 @@
 declare(strict_types=1);
 
 namespace vaaa20\Dice;
-
-//use function Mos\Functions\{
-    //destroySession,
-    //redirectTo,
-    //renderView,
-    //renderTwigView,
-    //sendResponse,
-    //url
-//};
-
 /**
- * Class Dice.
+ * Class GraphDice
  */
-class Dice
+class GraphDice
 {
 	const FACES = 6;
 	//const CONSTANT = 'constant value';
@@ -34,10 +24,6 @@ class Dice
 	public function getLastRoll(): int
     {
 		return $this->roll;
-<<<<<<< HEAD
-=======
-
->>>>>>> small change
     }
 
 }

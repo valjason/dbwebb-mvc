@@ -47,7 +47,11 @@ class Game
 
 		$body = renderView("layout/dice.php", $data);
 		sendResponse($body);
+<<<<<<< HEAD
 	
+=======
+		echo "Made By Valério Wallin";
+>>>>>>> small change
     }
 
 }
