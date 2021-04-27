@@ -84,6 +84,11 @@ class Router
             $_SESSION["output"] = $_POST["content"] ?? null;
             redirectTo(url("/form/view"));
             return;
+        } else if ($method === "POST" && $path === "/form/view") {
+            $_SESSION["output"] = $_POST["content"] ?? null;
+			$_SESSION["playerTotal"] = $_SESSION["playerTotal"] + rand(1,6); 
+            redirectTo(url("/dice"));
+            return;
         }
 
         $data = [
