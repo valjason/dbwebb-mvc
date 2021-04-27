@@ -41,8 +41,41 @@ class Game
 		$data["dieLastRoll"]=$die->getLastRoll();
 
 		$data["diceHandRoll"]=$diceHand->getLastRoll();
+		
+		/*$_SESSION['playerTotal'] = 0;*/
+		
+		echo ($_SESSION['playerTotal']);
+
+
+		if($_SESSION['playerTotal'] >= 21) {
+			session_destroy();
+		}	
+		
+		?>
+		<form method="post" action="form/view">
+		<input type="submit" value="Hit">
+
+		</input>
+		</form>
+
+
+
+
+
+
+
+
+		<?php		
+
 
 		
+
+
+
+
+
+
+
 
 
 		$body = renderView("layout/dice.php", $data);
