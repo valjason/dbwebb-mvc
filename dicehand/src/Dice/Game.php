@@ -47,7 +47,7 @@ class Game
 
 		$body = renderView("layout/dice.php", $data);
 		sendResponse($body);
-		echo "Made By Valério Wallin";
+		echo "Made By Valério Wallin - Redirect Branch";
     }
 
 }
