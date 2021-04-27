@@ -48,10 +48,14 @@ class Game
 		$body = renderView("layout/dice.php", $data);
 		sendResponse($body);
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
 =======
 		echo "Made By Valério Wallin";
 >>>>>>> small change
+=======
+		echo "Made By Valério Wallin - Redirect Branch";
+>>>>>>> lets try to redirect
     }
 
 }
