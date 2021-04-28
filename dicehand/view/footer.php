@@ -1,6 +1,6 @@
 </main>
 <footer>
-    <p>This is the footer.</p>
+<p>Made by Valério Wallin</p>
 </footer>
 </body>
 </html>

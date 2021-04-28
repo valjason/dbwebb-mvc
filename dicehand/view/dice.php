@@ -15,23 +15,40 @@ $header = $header ?? null;
 $message = $message ?? null;
 
 ?><h1><?= $header ?></h1>
+<!--<p>TOP</p>-->
+
 
 <p><?= $message ?></p>
 
+<!--<p><?= $diceHandRoll ?></p>-->
 
-<p> DICE!!!! </p>
+<form method="post" action="form/view">
+<input type="submit" value="Hit">
+</input>
 
-<p><?= $dieLastRoll ?></p>
+</form>
+<br>
+<form method="post" action="form/new">
+<input type="submit" value="Stay">
+</input>
+</form>
+<br>
+<?php 
+if(isset($_SESSION['playerTotal'])){echo "Total: ".$_SESSION['playerTotal'];}
+echo "<br><br>";
+?>
 
-<p>Dicehand</p>
-
-<p><?= $diceHandRoll ?></p>
 
 <?php
 
 /*$val .= '<img src="../src/images/'.$this->getLastRoll()[$i].'.png">'.$this->getLastRollOld();*/
 $val = '<img src="../src/images/'.$_SESSION['lastroll'].'.png">';
-echo $val;
+if(isset($_SESSION['diceimage'])){
+echo $_SESSION['diceimage'];
+}
+
+
+/*echo "<br>BOTTOM";*/
 
 ?>
 
@@ -40,4 +57,4 @@ echo $val;
 
 <?php
 
-echo $_SESSION['lastroll'];
+/*echo $_SESSION['lastroll'];*/

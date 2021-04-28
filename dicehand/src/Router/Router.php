@@ -97,6 +97,8 @@ class Router
             redirectTo(url("/form/view"));
             return;
         } else if ($method === "POST" && $path === "/form/view") {
+			
+
             $_SESSION["output"] = $_POST["content"] ?? null;
 	
 			$dicereturn = new \vaaa20\Dice\Dice();
@@ -105,8 +107,26 @@ class Router
 			$_SESSION["playerTotal"] = $_SESSION["playerTotal"] + $_SESSION['lastroll']; 
 
 
+/*
+			if (($_SESSION['playerTotal']+$_SESSION['lastroll'])>=21) {
+			
+            	redirectTo(url("/form/view"));
+				return;
+			}
+*/
+
+			if ($_SESSION['playerTotal']>=21) {
+			
+            	redirectTo(url("/form/view"));
+				return;
+			}
+			
+			$_SESSION['diceimage'] = '<img src="../src/images/'.$_SESSION['lastroll'].'.png">';
+
 
 			$_SESSION["gameStatus"] = "true";
+
+
             redirectTo(url("/dice"));
             return;
         } else if ($method === "POST" && $path === "/form/stop") {
@@ -119,6 +139,12 @@ class Router
 			$_SESSION["gameStatus"] = "true";
 			/*$_SESSION["playerTotal"] = $_POST["playerTotal"] ?? null;*/
             redirectTo(url("/form/view"));
+            return;
+        } else if ($method === "POST" && $path === "/form/again") {
+            $_SESSION["output"] = $_POST["content"] ?? null;
+			$_SESSION["gameStatus"] = "true";
+			/*$_SESSION["playerTotal"] = $_POST["playerTotal"] ?? null;*/
+            redirectTo(url("../../htdocs/dice"));
             return;
         }
 
