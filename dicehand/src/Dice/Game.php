@@ -37,6 +37,9 @@ class Game
 		$diceHand = new DiceHand();
 		$diceHand->roll();
 
+
+		$_SESSION['lastroll'] = $die->getLastRoll();
+
 	
 		$data["dieLastRoll"]=$die->getLastRoll();
 
@@ -130,7 +133,11 @@ class Game
 >>>>>>> lets try to redirect
 =======
 		echo $die->getLastRoll();
+<<<<<<< HEAD
 >>>>>>> on the way to success
+=======
+		echo "HELLOOO LADIES N GENTS".$_SESSION['lastroll'];
+>>>>>>> close now
     }
 
 }

@@ -2,6 +2,17 @@
 
 declare(strict_types=1);
 
+
+namespace vaaa20\Dice;
+
+use function vaaa20\Dice\Dice\{
+	getLastRoll
+
+};
+
+use vaaa20\Dice\Dice;
+use vaaa20\Dice\DiceHand;
+
 namespace Mos\Router;
 
 use function Mos\Functions\{
@@ -12,6 +23,7 @@ use function Mos\Functions\{
     sendResponse,
     url
 };
+
 
 /**
  * Class Router.
@@ -86,7 +98,14 @@ class Router
             return;
         } else if ($method === "POST" && $path === "/form/view") {
             $_SESSION["output"] = $_POST["content"] ?? null;
-			$_SESSION["playerTotal"] = $_SESSION["playerTotal"] + rand(1,6); 
+	
+			$dicereturn = new \vaaa20\Dice\Dice();
+			/*$_SESSION['lastroll'] = $dicereturn->roll();*/
+				
+			$_SESSION["playerTotal"] = $_SESSION["playerTotal"] + $_SESSION['lastroll']; 
+
+
+
 			$_SESSION["gameStatus"] = "true";
             redirectTo(url("/dice"));
             return;
