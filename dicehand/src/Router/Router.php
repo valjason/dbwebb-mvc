@@ -87,7 +87,19 @@ class Router
         } else if ($method === "POST" && $path === "/form/view") {
             $_SESSION["output"] = $_POST["content"] ?? null;
 			$_SESSION["playerTotal"] = $_SESSION["playerTotal"] + rand(1,6); 
+			$_SESSION["gameStatus"] = "true";
             redirectTo(url("/dice"));
+            return;
+        } else if ($method === "POST" && $path === "/form/stop") {
+            $_SESSION["output"] = $_POST["content"] ?? null;
+			$_SESSION["gameStatus"] = "false";
+            redirectTo(url("/dice"));
+            return;
+        } else if ($method === "POST" && $path === "/form/new") {
+            $_SESSION["output"] = $_POST["content"] ?? null;
+			$_SESSION["gameStatus"] = "true";
+			/*$_SESSION["playerTotal"] = $_POST["playerTotal"] ?? null;*/
+            redirectTo(url("/form/view"));
             return;
         }
 

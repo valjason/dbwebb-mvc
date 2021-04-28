@@ -47,7 +47,7 @@ class Game
 		echo ($_SESSION['playerTotal']);
 
 
-		if($_SESSION['playerTotal'] >= 21) {
+		if($_SESSION['playerTotal'] >= 22) {
 			session_destroy();
 		}	
 		
@@ -58,29 +58,68 @@ class Game
 		</input>
 		</form>
 
+		<form method="post" action="form/new">
+		<input type="submit" value="Stay">
 
-
-
-
-
-
-
-		<?php		
-
+		</input>
+		</form>
 
 		
 
 
 
 
+		<?php		
+		$computerTotal = 0;
+
+		/*$_SESSION['gameStatus'] = "true";*/
+
+		echo ($_SESSION['gameStatus']);
+
+		?>
+		<form method="post" action="form/stop">
+		<input type="submit" value="Stop">
+
+		</input>
+		</form>
 
 
 
+		<?php
 
+
+		while($computerTotal<=21){
+			$computerTotal += rand(1,6);
+			if ($computerTotal > $_SESSION['playerTotal']){
+				$_SESSION['gameStatus'] = "false";
+				break;
+				
+			} else if ($computerTotal > $_SESSION['playerTotal']){
+				$_SESSION['gameStatus'] = "false";
+				break;
+			}
+		}
+
+		$_SESSION['computerTotal'] = $computerTotal;
+		
+		if ($computerTotal < $_SESSION['playerTotal'] && $_SESSION['playerTotal'] <= 21 && $_SESSION['gameStatus'] === "false")
+		{$result = "Player Wins!";}
+		else if($_SESSION['playerTotal']<$computerTotal && $computerTotal<=21 && $_SESSION['gameStatus'] === "false"){
+		$result = "Computer Wins!";
+		} else if ($computerTotal>21 && $_SESSION['playerTotal']<=21 && $_SESSION['gameStatus'] === "false") {
+			$result = "Computer Bust! Player Wins!";
+		} else if ($_SESSION['playerTotal']>21 && $computerTotal<=21 && $_SESSION['gameStatus'] === "false") {
+			$result = "Player Bust! Computer Wins!";
+		}
+		
+		if ($_SESSION['gameStatus'] === "true"){
+		echo "<div id='message'>".$val."</br>"."Player: ".$_SESSION['playerTotal']." Computer: ".$computerTotal."<br>".$result.$_SESSION['computerTotal']."</div>";
+	}
 
 		$body = renderView("layout/dice.php", $data);
 		sendResponse($body);
 		echo "Made By Valério Wallin - Redirect Branch";
+		echo $die->getLastRoll();
     }
 
 }
