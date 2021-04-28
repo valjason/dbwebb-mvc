@@ -37,6 +37,9 @@ class Game
 		$diceHand = new DiceHand();
 		$diceHand->roll();
 
+
+		$_SESSION['lastroll'] = $die->getLastRoll();
+
 	
 		$data["dieLastRoll"]=$die->getLastRoll();
 
@@ -120,6 +123,7 @@ class Game
 		sendResponse($body);
 		echo "Made By Valério Wallin - Redirect Branch";
 		echo $die->getLastRoll();
+		echo "HELLOOO LADIES N GENTS".$_SESSION['lastroll'];
     }
 
 }

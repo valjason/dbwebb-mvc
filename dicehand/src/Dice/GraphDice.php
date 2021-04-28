@@ -26,4 +26,6 @@ class GraphDice
 		return $this->roll;
     }
 
+		
+
 }

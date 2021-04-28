@@ -26,3 +26,12 @@ $message = $message ?? null;
 <p>Dicehand</p>
 
 <p><?= $diceHandRoll ?></p>
+
+
+
+
+<!-- someway this needs to removed and put in the Router.php or Game.php file -->
+
+<?php
+
+echo $_SESSION['lastroll'];
