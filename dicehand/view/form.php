@@ -29,4 +29,26 @@ $output = $output ?? null;
         <output>You have sent the value of:<br>'<?= htmlentities($output) ?>'</output>
     </p>
     <?php endif; ?>
+
 </form>
+
+
+<?php
+
+echo "Player: ".$_SESSION['playerTotal']." points"."<br><br>";
+echo "Computer: ".$_SESSION['computerTotal']." points";
+
+
+if ($_SESSION['computerTotal'] < $_SESSION['playerTotal'] && $_SESSION['playerTotal'] <= 21)
+{$result = "Player Wins!";}
+else if($_SESSION['playerTotal']<$_SESSION['computerTotal'] && $_SESSION['computerTotal']<=21){
+$result = "Computer Wins!";
+} else if ($_SESSION['computerTotal']>21 && $_SESSION['playerTotal']<=21) {
+    $result = "Computer Bust! Player Wins!";
+} else if ($_SESSION['playerTotal']>21 && $_SESSION['computerTotal']<=21) {
+    $result = "Player Bust! Computer Wins!";
+}
+echo "<br>"."<br>".$result;
+
+
+?>
