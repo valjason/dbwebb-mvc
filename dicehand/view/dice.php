@@ -27,7 +27,13 @@ $message = $message ?? null;
 
 <p><?= $diceHandRoll ?></p>
 
+<?php
 
+/*$val .= '<img src="../src/images/'.$this->getLastRoll()[$i].'.png">'.$this->getLastRollOld();*/
+$val = '<img src="../src/images/'.$_SESSION['lastroll'].'.png">';
+echo $val;
+
+?>
 
 
 <!-- someway this needs to removed and put in the Router.php or Game.php file -->
