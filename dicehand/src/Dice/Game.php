@@ -104,6 +104,40 @@ class Game
 				break;
 			}
 		}
+/*
+		if($_SESSION['playerTotal'] > 21) {
+			$computerTotal = 19;
+		}
+*/
+/*
+		echo $_SESSION['playerTotal'];
+
+		if($_SESSION['playerTotal'] < 21) {
+			
+
+		  if ($_SESSION['playerTotal'] == 21) {
+
+			while($computerTotal < 21) {
+
+			$computerTotal += rand(1,6);
+
+			}
+
+		} else if ($_SESSION['playerTotal'] < 21) {
+			
+			while($computerTotal < ($_SESSION['playerTotal']+1)) {
+
+				$computerTotal += rand(1,6);
+			}
+
+			}
+		} 
+
+		if($_SESSION['playerTotal'] > 21) {
+
+		$computerTotal = 0;
+
+		}*/
 
 		$_SESSION['computerTotal'] = $computerTotal;
 		

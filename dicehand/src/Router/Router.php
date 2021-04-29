@@ -146,7 +146,40 @@ class Router
 			/*$_SESSION["playerTotal"] = $_POST["playerTotal"] ?? null;*/
             redirectTo(url("../../htdocs/dice"));
             return;
-        }
+        } else if ($method === "POST" && $path === "/form/view2") {
+			
+
+            $_SESSION["output"] = $_POST["content"] ?? null;
+	
+			$dicereturn = new \vaaa20\Dice\Dice();
+			/*$_SESSION['lastroll'] = $dicereturn->roll();*/
+				
+			$_SESSION["playerTotal"] = $_SESSION["playerTotal"] + ($_SESSION['lastroll']*2); 
+
+
+
+			if (($_SESSION['playerTotal']+$_SESSION['lastroll'])>21) {
+			
+            	redirectTo(url("/form/view"));
+				return;
+			}
+
+/*
+			if ($_SESSION['playerTotal']>=21) {
+			
+            	redirectTo(url("/form/view"));
+				return;
+			}
+*/			
+			$_SESSION['diceimage'] = '<img src="../src/images/'.$_SESSION['lastroll'].'.png">';
+
+
+			$_SESSION["gameStatus"] = "true";
+
+
+            redirectTo(url("/dice"));
+            return;
+        } 
 
         $data = [
             "header" => "404",

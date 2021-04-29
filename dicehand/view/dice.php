@@ -27,6 +27,12 @@ $message = $message ?? null;
 </input>
 
 </form>
+
+<form method="post" action="form/view2">
+<input type="submit" value="Hit x2">
+</input>
+
+</form>
 <br>
 <form method="post" action="form/new">
 <input type="submit" value="Stay">
