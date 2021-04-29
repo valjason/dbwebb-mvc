@@ -156,21 +156,24 @@ class Router
 				
 			$_SESSION["playerTotal"] = $_SESSION["playerTotal"] + ($_SESSION['lastroll']*2); 
 
-
+/*
 
 			if (($_SESSION['playerTotal']+$_SESSION['lastroll'])>21) {
 			
             	redirectTo(url("/form/view"));
 				return;
 			}
+*/
 
-/*
-			if ($_SESSION['playerTotal']>=21) {
-			
+
+			if ($_SESSION['playerTotal']>21) {
+				$computerTotal = 0;
+				$_SESSION['computerTotal'] = 0;
             	redirectTo(url("/form/view"));
 				return;
+				
 			}
-*/			
+			
 			$_SESSION['diceimage'] = '<img src="../src/images/'.$_SESSION['lastroll'].'.png">';
 
 

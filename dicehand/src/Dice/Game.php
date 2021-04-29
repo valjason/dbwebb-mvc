@@ -94,15 +94,23 @@ class Game
 
 
 		while($computerTotal<21){
-			$computerTotal += rand(1,6);
+			
+
 			if ($computerTotal > isset($_SESSION['playerTotal'])){
-				$_SESSION['gameStatus'] = "false";
 				break;
 				
-			} else if ($computerTotal > $_SESSION['playerTotal']){
-				$_SESSION['gameStatus'] = "false";
+			} else if ($computerTotal > isset($_SESSION['playerTotal'])) {
+				break;
+			} else if ($_SESSION['playerTotal'] > 21) {
+				break;
+			} else if (($_SESSION['playerTotal'] < 22) && ($computerTotal > $_SESSION['playerTotal'])) {
+				break;
+			} else if ($_SESSION['playerTotal'] > 21) {
+				$computerTotal = 0;
 				break;
 			}
+			
+			$computerTotal += rand(1,6);
 		}
 /*
 		if($_SESSION['playerTotal'] > 21) {

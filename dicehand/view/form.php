@@ -16,6 +16,7 @@ echo "<br><br>";
 
 
 <?php
+
 /*
 while($computerTotal<=21){
     $computerTotal += rand(1,6);
@@ -55,5 +56,10 @@ echo "<br>"."<br>".$result."</br></br>";
 </form>
 
 <?php
+if($_SESSION['playerTotal']>21) {
 
+$_SESSION['computerTotal'] = 0;
+$computerTotal = 0;
+
+}
 session_destroy();
