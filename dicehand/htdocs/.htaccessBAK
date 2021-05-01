@@ -2,7 +2,7 @@
 # This is a modified rewrite to fit when working on both local development
 # environment and publishing to www.student.bth.se.
 #
-# Do NOT forget to change /~vaaa20/ to your own student acronym.
+# Do NOT forget to change /~mosstud/ to your own student acronym.
 #
 RewriteEngine on
 
@@ -14,10 +14,10 @@ RewriteRule (.*) - [NC,L]
 
 # Rewrite 1 - For request via www.student.bth.se
 #RewriteCond %{HTTP_HOST} ^www\.student\.bth\.se$ [NC]
-#RewriteRule ^image/(.*)$ /~vaaa20/dbwebb-kurser/mvc/me/game/htdocs/cimage/#img.php?src=$1 [QSA,NC,L]
+#RewriteRule ^image/(.*)$ /~mosstud/dbwebb-kurser/mvc/me/game/htdocs/cimage/#img.php?src=$1 [QSA,NC,L]
 
 RewriteCond %{HTTP_HOST} ^www\.student\.bth\.se$ [NC]
-RewriteRule (.*) /~vaaa20/dbwebb-kurser/mvc/me/game/dicehand/htdocs/index.php/$1 [NC,L]
+RewriteRule (.*) /~mosstud/dbwebb-kurser/mvc/me/game/htdocs/index.php/$1 [NC,L]
 
 
 # Rewrite 2 - For other requests
@@ -26,11 +26,3 @@ RewriteRule (.*) /~vaaa20/dbwebb-kurser/mvc/me/game/dicehand/htdocs/index.php/$1
 
 RewriteCond %{HTTP_HOST} !^www\.student\.bth\.se$ [NC]
 RewriteRule (.*) index.php/$1 [NC,L]
-
-
-
-
-
-
-
-#HOW CAN SOMEONE ACCESS MY ind.php file?

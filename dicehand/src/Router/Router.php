@@ -114,12 +114,23 @@ class Router
 				return;
 			}
 */
-
+            /*
 			if ($_SESSION['playerTotal']>=21) {
 			
             	redirectTo(url("/form/view"));
 				return;
 			}
+            */
+
+            if ($_SESSION['playerTotal']>21) {
+				$computerTotal = 0;
+				$_SESSION['computerTotal'] = 0;
+            	redirectTo(url("/form/view"));
+				return;
+				
+			}
+
+
 			
 			$_SESSION['diceimage'] = '<img src="../src/images/'.$_SESSION['lastroll'].'.png">';
 
@@ -135,8 +146,10 @@ class Router
             redirectTo(url("/dice"));
             return;
         } else if ($method === "POST" && $path === "/form/new") {
+            /*
             $_SESSION["output"] = $_POST["content"] ?? null;
 			$_SESSION["gameStatus"] = "true";
+            */
 			/*$_SESSION["playerTotal"] = $_POST["playerTotal"] ?? null;*/
             redirectTo(url("/form/view"));
             return;
