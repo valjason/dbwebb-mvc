@@ -27,7 +27,7 @@ class Game
     public function playGame(): void
     {
 
-		$data = [
+	$data = [
 			"header" => "Dice",
 			"message" => "Players in turn aim to score 21, or as near as possible to it, by throwing the dice as many times as desired and adding up the numbers thrown.  A player who totals over 21 is bust and is out of the game.<br><br>You can either hit or stay in this game, which means throw the dice or choose to stay at the current number.<br> <br>  The player whose total is nearest 21, after each player has had a turn, wins the game.  In the case of an equally high total, a play-off is made.",
 		];
@@ -50,7 +50,7 @@ class Game
 		/*echo ($_SESSION['playerTotal']);*/
 
 		
-		if(isset($_SESSION_['playerTotal']) && $_SESSION['playerTotal'] >= 22) {
+		if(isset($_SESSION['playerTotal']) && $_SESSION['playerTotal'] >= 22) {
 			session_destroy();
 		}	
 
@@ -176,7 +176,7 @@ class Game
 		}
 		
 		if (isset($_SESSION['gameStatus']) === "true"){
-		echo "<div id='message'>".$val."</br>"."Player: ".isset($_SESSION['playerTotal'])." Computer: ".$computerTotal."<br>".$result.$_SESSION['computerTotal']."</div>";
+		echo "<div id='message'>"."</br>"."Player: ".isset($_SESSION['playerTotal'])." Computer: ".$computerTotal."<br>".$result.$_SESSION['computerTotal']."</div>";
 	}
 
 		$body = renderView("layout/dice.php", $data);

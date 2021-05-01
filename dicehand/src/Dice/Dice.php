@@ -18,14 +18,12 @@ namespace vaaa20\Dice;
  */
 class Dice
 {
-	const FACES = 6;
+    const FACES = 6;
+    private ?int $roll = null;
 	//const CONSTANT = 'constant value';
 	//const int FACES = 6;
 
-	private ?int $roll = null;	
-	
-    public function roll(): int
-    {
+    public function roll(): int {
 		$this->roll = rand(1, self::FACES);
 
 		return $this->roll;
