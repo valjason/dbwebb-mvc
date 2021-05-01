@@ -53,6 +53,11 @@ class Game
 		if(isset($_SESSION_['playerTotal']) && $_SESSION['playerTotal'] >= 22) {
 			session_destroy();
 		}	
+
+		if(!isset($_SESSION['playerTotal'])) {
+
+			$_SESSION['playerTotal'] = 0;
+		}
 		
 		?>
 		<!--
@@ -74,7 +79,7 @@ class Game
 
 
 		<?php		
-		$computerTotal = 0;
+		
 
 		/*$_SESSION['gameStatus'] = "true";*/
 
@@ -92,26 +97,37 @@ class Game
 
 		<?php
 
-
-		while($computerTotal<21){
+		$computerTotal = 0;
+		while(true){
 			
 
-			if ($computerTotal > isset($_SESSION['playerTotal'])){
-				break;
-				
-			} else if ($computerTotal > isset($_SESSION['playerTotal'])) {
-				break;
-			} else if ($_SESSION['playerTotal'] > 21) {
-				break;
-			} else if (($_SESSION['playerTotal'] < 22) && ($computerTotal > $_SESSION['playerTotal'])) {
-				break;
-			} else if ($_SESSION['playerTotal'] > 21) {
+			if ($computerTotal > $_SESSION['playerTotal']) {
+				/* Strange, if I add isset to the session variable above, computer continues to bust after a hit and stay. */
+				break; /* Computer over player, stop */
+			} else if (isset($_SESSION['playerTotal']) > 21) {
+				break;  /* Player over 21, computer stops */
+			} else if ((isset($_SESSION['playerTotal']) < 22) && ($computerTotal > isset($_SESSION['playerTotal']))) {
+				break; /* Is the computer over the player, stop */
+			} else if (isset($_SESSION['playerTotal']) > 21) {
 				$computerTotal = 0;
+				break;
+				/* player over 21, computer is 0 and stop */
+			} if ($computerTotal > 21) {
 				break;
 			}
 			
 			$computerTotal += rand(1,6);
 		}
+
+		#HERE IS NEW CODE:
+
+	
+
+		
+
+
+
+
 /*
 		if($_SESSION['playerTotal'] > 21) {
 			$computerTotal = 19;
@@ -149,18 +165,18 @@ class Game
 
 		$_SESSION['computerTotal'] = $computerTotal;
 		
-		if ($computerTotal < isset($_SESSION['playerTotal']) && isset($_SESSION['playerTotal']) <= 21 && $_SESSION['gameStatus'] === "false")
+		if ($computerTotal < isset($_SESSION['playerTotal']) && isset($_SESSION['playerTotal']) <= 21 && isset($_SESSION['gameStatus']) === "false")
 		{$result = "Player Wins!";}
-		else if(isset($_SESSION['playerTotal'])<$computerTotal && $computerTotal<=21 && $_SESSION['gameStatus'] === "false"){
+		else if(isset($_SESSION['playerTotal'])<$computerTotal && $computerTotal<=21 && isset($_SESSION['gameStatus']) === "false"){
 		$result = "Computer Wins!";
-		} else if ($computerTotal>21 && $_SESSION['playerTotal']<=21 && $_SESSION['gameStatus'] === "false") {
+		} else if ($computerTotal>21 && isset($_SESSION['playerTotal'])<=21 && isset($_SESSION['gameStatus']) === "false") {
 			$result = "Computer Bust! Player Wins!";
-		} else if ($_SESSION['playerTotal']>21 && $computerTotal<=21 && $_SESSION['gameStatus'] === "false") {
+		} else if (isset($_SESSION['playerTotal'])>21 && $computerTotal<=21 && isset($_SESSION['gameStatus']) === "false") {
 			$result = "Player Bust! Computer Wins!";
 		}
 		
-		if ($_SESSION['gameStatus'] === "true"){
-		echo "<div id='message'>".$val."</br>"."Player: ".$_SESSION['playerTotal']." Computer: ".$computerTotal."<br>".$result.$_SESSION['computerTotal']."</div>";
+		if (isset($_SESSION['gameStatus']) === "true"){
+		echo "<div id='message'>".$val."</br>"."Player: ".isset($_SESSION['playerTotal'])." Computer: ".$computerTotal."<br>".$result.$_SESSION['computerTotal']."</div>";
 	}
 
 		$body = renderView("layout/dice.php", $data);
