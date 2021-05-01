@@ -37,17 +37,13 @@ class Game
 		$diceHand = new DiceHand();
 		$diceHand->roll();
 
-
 		$_SESSION['lastroll'] = $die->getLastRoll();
 
-	
 		$data["dieLastRoll"]=$die->getLastRoll();
 
 		$data["diceHandRoll"]=$diceHand->getLastRoll();
 		
-		/*$_SESSION['playerTotal'] = 0;*/
-		
-		/*echo ($_SESSION['playerTotal']);*/
+
 
 		
 		if(isset($_SESSION['playerTotal']) && $_SESSION['playerTotal'] >= 22) {
@@ -59,125 +55,29 @@ class Game
 			$_SESSION['playerTotal'] = 0;
 		}
 		
-		?>
-		<!--
-		<form method="post" action="form/view">
-		<input type="submit" value="Hit">
-
-		</input>
-		</form>
-
-		<form method="post" action="form/new">
-		<input type="submit" value="Stay">
-
-		</input>
-		</form>
-		-->
 		
-
-
-
-
-		<?php		
-		
-
-		/*$_SESSION['gameStatus'] = "true";*/
-
-/*		echo ($_SESSION['gameStatus']);*/
-
-		?>
-<!--
-		<form method="post" action="form/stop">
-		<input type="submit" value="Stop">
-
-		</input>
-		</form>
--->
-
-
-		<?php
 
 		$computerTotal = 0;
 		while(true){
-			
 
-			if ($computerTotal > $_SESSION['playerTotal']) {
+			if ($computerTotal > $_SESSION['playerTotal'] || $computerTotal > 21) {
 				/* Strange, if I add isset to the session variable above, computer continues to bust after a hit and stay. */
-				break; /* Computer over player, stop */
-			} else if (isset($_SESSION['playerTotal']) > 21) {
-				break;  /* Player over 21, computer stops */
+				break; /* Computer over player, stop */	
 			} else if ((isset($_SESSION['playerTotal']) < 22) && ($computerTotal > isset($_SESSION['playerTotal']))) {
 				break; /* Is the computer over the player, stop */
 			} else if (isset($_SESSION['playerTotal']) > 21) {
 				$computerTotal = 0;
 				break;
 				/* player over 21, computer is 0 and stop */
-			} if ($computerTotal > 21) {
-				break;
-			}
-			
+			} 
 			$computerTotal += rand(1,6);
 		}
-
-		#HERE IS NEW CODE:
 
 	
 
-		
-
-
-
-
-/*
-		if($_SESSION['playerTotal'] > 21) {
-			$computerTotal = 19;
-		}
-*/
-/*
-		echo $_SESSION['playerTotal'];
-
-		if($_SESSION['playerTotal'] < 21) {
-			
-
-		  if ($_SESSION['playerTotal'] == 21) {
-
-			while($computerTotal < 21) {
-
-			$computerTotal += rand(1,6);
-
-			}
-
-		} else if ($_SESSION['playerTotal'] < 21) {
-			
-			while($computerTotal < ($_SESSION['playerTotal']+1)) {
-
-				$computerTotal += rand(1,6);
-			}
-
-			}
-		} 
-
-		if($_SESSION['playerTotal'] > 21) {
-
-		$computerTotal = 0;
-
-		}*/
-
 		$_SESSION['computerTotal'] = $computerTotal;
 		
-		if ($computerTotal < isset($_SESSION['playerTotal']) && isset($_SESSION['playerTotal']) <= 21 && isset($_SESSION['gameStatus']) === "false")
-		{$result = "Player Wins!";}
-		else if(isset($_SESSION['playerTotal'])<$computerTotal && $computerTotal<=21 && isset($_SESSION['gameStatus']) === "false"){
-		$result = "Computer Wins!";
-		} else if ($computerTotal>21 && isset($_SESSION['playerTotal'])<=21 && isset($_SESSION['gameStatus']) === "false") {
-			$result = "Computer Bust! Player Wins!";
-		} else if (isset($_SESSION['playerTotal'])>21 && $computerTotal<=21 && isset($_SESSION['gameStatus']) === "false") {
-			$result = "Player Bust! Computer Wins!";
-		}
-		
-		if (isset($_SESSION['gameStatus']) === "true"){
-		echo "<div id='message'>"."</br>"."Player: ".isset($_SESSION['playerTotal'])." Computer: ".$computerTotal."<br>".$result.$_SESSION['computerTotal']."</div>";
-	}
+	
 
 		$body = renderView("layout/dice.php", $data);
 		sendResponse($body);
@@ -201,10 +101,14 @@ class Game
 >>>>>>> close now
 =======
 
+<<<<<<< HEAD
 		/*echo "Made By Valério Wallin";*/
 		/*echo $die->getLastRoll();*/
 		/*echo "HELLOOO LADIES N GENTS".$_SESSION['lastroll'];*/
 >>>>>>> pretty good, some logic issues, dice x2 missing
+=======
+
+>>>>>>> cleaned up nice
     }
 
 }
