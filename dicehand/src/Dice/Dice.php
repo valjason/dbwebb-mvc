@@ -33,6 +33,7 @@ class Dice
     public function getLastRoll(): int
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
 		return $this->roll;
 <<<<<<< HEAD
 =======
@@ -44,5 +45,8 @@ class Dice
 >>>>>>> small change
 =======
 >>>>>>> almost clean
+=======
+        return $this->roll;
+>>>>>>> redirect
     }
 }

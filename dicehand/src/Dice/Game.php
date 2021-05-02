@@ -64,6 +64,7 @@ class Game
 
         $_SESSION['computerTotal'] = $computerTotal;
 <<<<<<< HEAD
+<<<<<<< HEAD
 		
 	
 
@@ -108,5 +109,9 @@ class Game
         $body = renderView("layout/dice.php", $data);
         sendResponse($body);
 >>>>>>> almost clean
+=======
+        $body = renderView("layout/dice.php", $data);
+        sendResponse($body);
+>>>>>>> redirect
     }
 }
