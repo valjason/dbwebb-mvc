@@ -1,11 +1,4 @@
-/Users/valle/dbwebb-kurser/mvc/me/game/dicehand/src/Dice/Dice.php:22	Avoid unused private fields such as '$roll'.
-/Users/valle/dbwebb-kurser/mvc/me/game/dicehand/src/Dice/DiceHand.php:35	Avoid unused local variables such as '$len'.
+/Users/valle/dbwebb-kurser/mvc/me/game/dicehand/src/Dice/Game.php:23	The method playGame() has a Cyclomatic Complexity of 10. The configured cyclomatic complexity threshold is 10.
 /Users/valle/dbwebb-kurser/mvc/me/game/dicehand/src/Router/Router.php:28	The method dispatch() has a Cyclomatic Complexity of 31. The configured cyclomatic complexity threshold is 10.
 /Users/valle/dbwebb-kurser/mvc/me/game/dicehand/src/Router/Router.php:28	The method dispatch() has 146 lines of code. Current threshold is set to 100. Avoid really long methods.
 /Users/valle/dbwebb-kurser/mvc/me/game/dicehand/src/Router/Router.php:74	Missing class import via use statement (line '74', column '29').
-/Users/valle/dbwebb-kurser/mvc/me/game/dicehand/src/Router/Router.php:94	Missing class import via use statement (line '94', column '31').
-/Users/valle/dbwebb-kurser/mvc/me/game/dicehand/src/Router/Router.php:94	Avoid unused local variables such as '$dicereturn'.
-/Users/valle/dbwebb-kurser/mvc/me/game/dicehand/src/Router/Router.php:111	Avoid unused local variables such as '$computerTotal'.
-/Users/valle/dbwebb-kurser/mvc/me/game/dicehand/src/Router/Router.php:141	Missing class import via use statement (line '141', column '31').
-/Users/valle/dbwebb-kurser/mvc/me/game/dicehand/src/Dice/Dice.php	-	Unexpected end of token stream in file: /Users/valle/dbwebb-kurser/mvc/me/game/dicehand/src/Dice/Dice.php.
-/Users/valle/dbwebb-kurser/mvc/me/game/dicehand/src/Dice/Game.php	-	Unexpected end of token stream in file: /Users/valle/dbwebb-kurser/mvc/me/game/dicehand/src/Dice/Game.php.

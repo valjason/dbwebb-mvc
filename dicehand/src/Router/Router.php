@@ -91,7 +91,7 @@ class Router
         } else if ($method === "POST" && $path === "/form/view") {
             $_SESSION["output"] = $_POST["content"] ?? null;
 
-            $dicereturn = new \vaaa20\Dice\Dice();
+            /*$dicereturn = new \vaaa20\Dice\Dice();*/
             /*$_SESSION['lastroll'] = $dicereturn->roll();*/
             $_SESSION["playerTotal"] = $_SESSION["playerTotal"] + $_SESSION['lastroll'];
 /*
@@ -108,7 +108,7 @@ class Router
             */
 
             if ($_SESSION['playerTotal'] > 21) {
-                $computerTotal = 0;
+                /*$computerTotal = 0;*/
                 $_SESSION['computerTotal'] = 0;
                 redirectTo(url("/form/view"));
                 return;
@@ -138,7 +138,7 @@ class Router
             return;
         } else if ($method === "POST" && $path === "/form/view2") {
             $_SESSION["output"] = $_POST["content"] ?? null;
-            $dicereturn = new \vaaa20\Dice\Dice();
+            /*$dicereturn = new \vaaa20\Dice\Dice();*/
             /*$_SESSION['lastroll'] = $dicereturn->roll();*/
             $_SESSION["playerTotal"] = $_SESSION["playerTotal"] + ($_SESSION['lastroll'] * 2);
 /*
@@ -150,7 +150,7 @@ class Router
 
 
             if ($_SESSION['playerTotal'] > 21) {
-                $computerTotal = 0;
+                /*$computerTotal = 0;*/
                 $_SESSION['computerTotal'] = 0;
                 redirectTo(url("/form/view"));
                 return;

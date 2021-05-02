@@ -26,27 +26,11 @@ class Dice
     public function roll(): int
     {
         $this->roll = rand(1, self::FACES);
-
         return $this->roll;
     }
 
     public function getLastRoll(): int
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-		return $this->roll;
-<<<<<<< HEAD
-=======
-=======
         return $this->roll;
-<<<<<<< HEAD
->>>>>>> cleaned up nicely, still some left
-
->>>>>>> small change
-=======
->>>>>>> almost clean
-=======
-        return $this->roll;
->>>>>>> redirect
     }
 }

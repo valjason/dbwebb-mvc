@@ -63,55 +63,7 @@ class Game
         }
 
         $_SESSION['computerTotal'] = $computerTotal;
-<<<<<<< HEAD
-<<<<<<< HEAD
-		
-	
-
-<<<<<<< HEAD
-		$body = renderView("layout/dice.php", $data);
-		sendResponse($body);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	
-=======
-		echo "Made By Valério Wallin";
->>>>>>> small change
-=======
-		echo "Made By Valério Wallin - Redirect Branch";
-<<<<<<< HEAD
->>>>>>> lets try to redirect
-=======
-		echo $die->getLastRoll();
-<<<<<<< HEAD
->>>>>>> on the way to success
-=======
-		echo "HELLOOO LADIES N GENTS".$_SESSION['lastroll'];
->>>>>>> close now
-=======
-
-<<<<<<< HEAD
-		/*echo "Made By Valério Wallin";*/
-		/*echo $die->getLastRoll();*/
-		/*echo "HELLOOO LADIES N GENTS".$_SESSION['lastroll'];*/
->>>>>>> pretty good, some logic issues, dice x2 missing
-=======
-
->>>>>>> cleaned up nice
-=======
         $body = renderView("layout/dice.php", $data);
         sendResponse($body);
-
-
->>>>>>> cleaned up nicely, still some left
-=======
-        $body = renderView("layout/dice.php", $data);
-        sendResponse($body);
->>>>>>> almost clean
-=======
-        $body = renderView("layout/dice.php", $data);
-        sendResponse($body);
->>>>>>> redirect
     }
 }
