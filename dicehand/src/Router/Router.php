@@ -6,11 +6,12 @@ declare(strict_types=1);
 namespace vaaa20\Dice;
 
 use function vaaa20\Dice\Dice\{
-	getLastRoll
+    getLastRoll
 
 };
 
 use vaaa20\Dice\Dice;
+
 use vaaa20\Dice\DiceHand;
 
 namespace Mos\Router;
@@ -68,7 +69,6 @@ class Router
             $body = renderView("layout/page.php", $data);
             sendResponse($body);
             return;
-
         } else if ($method === "GET" && $path === "/dice") {
             //$data = [
                 //"header" => "Dice",
@@ -77,11 +77,9 @@ class Router
             //$body = renderView("layout/dice.php", $data);
             //sendResponse($body);
             //return;
-			$callable = new \vaaa20\Dice\Game();
-			$callable->playGame();
-
-			return;
-
+            $callable = new \vaaa20\Dice\Game();
+            $callable->playGame();
+            return;
         } else if ($method === "GET" && $path === "/form/view") {
             $data = [
                 "header" => "Form",
@@ -97,100 +95,77 @@ class Router
             redirectTo(url("/form/view"));
             return;
         } else if ($method === "POST" && $path === "/form/view") {
-			
-
             $_SESSION["output"] = $_POST["content"] ?? null;
-	
-			$dicereturn = new \vaaa20\Dice\Dice();
-			/*$_SESSION['lastroll'] = $dicereturn->roll();*/
-				
-			$_SESSION["playerTotal"] = $_SESSION["playerTotal"] + $_SESSION['lastroll']; 
+
+            $dicereturn = new \vaaa20\Dice\Dice();
+            /*$_SESSION['lastroll'] = $dicereturn->roll();*/
+            $_SESSION["playerTotal"] = $_SESSION["playerTotal"] + $_SESSION['lastroll']; 
 
 
 /*
-			if (($_SESSION['playerTotal']+$_SESSION['lastroll'])>=21) {
-			
-            	redirectTo(url("/form/view"));
-				return;
-			}
+            if (($_SESSION['playerTotal']+$_SESSION['lastroll'])>=21) {	
+                redirectTo(url("/form/view"));
+                return;
+            }
 */
             /*
-			if ($_SESSION['playerTotal']>=21) {
-			
-            	redirectTo(url("/form/view"));
-				return;
-			}
+            if ($_SESSION['playerTotal']>=21) {
+                redirectTo(url("/form/view"));
+                return;
+            }
             */
 
             if ($_SESSION['playerTotal']>21) {
-				$computerTotal = 0;
-				$_SESSION['computerTotal'] = 0;
-            	redirectTo(url("/form/view"));
-				return;
-				
-			}
-
-
-			
-			$_SESSION['diceimage'] = '<img src="../src/images/'.$_SESSION['lastroll'].'.png">';
-
-
-			$_SESSION["gameStatus"] = "true";
-
-
+                $computerTotal = 0;
+                $_SESSION['computerTotal'] = 0;
+                redirectTo(url("/form/view"));
+                return;
+            }
+            $_SESSION['diceimage'] = '<img src="../src/images/'.$_SESSION['lastroll'].'.png">';
+            $_SESSION["gameStatus"] = "true";
             redirectTo(url("/dice"));
             return;
         } else if ($method === "POST" && $path === "/form/stop") {
             $_SESSION["output"] = $_POST["content"] ?? null;
-			$_SESSION["gameStatus"] = "false";
+            $_SESSION["gameStatus"] = "false";
             redirectTo(url("/dice"));
             return;
         } else if ($method === "POST" && $path === "/form/new") {
             /*
             $_SESSION["output"] = $_POST["content"] ?? null;
-			$_SESSION["gameStatus"] = "true";
+            $_SESSION["gameStatus"] = "true";
             */
-			/*$_SESSION["playerTotal"] = $_POST["playerTotal"] ?? null;*/
+            /*$_SESSION["playerTotal"] = $_POST["playerTotal"] ?? null;*/
             redirectTo(url("/form/view"));
             return;
         } else if ($method === "POST" && $path === "/form/again") {
             $_SESSION["output"] = $_POST["content"] ?? null;
-			$_SESSION["gameStatus"] = "true";
-			/*$_SESSION["playerTotal"] = $_POST["playerTotal"] ?? null;*/
+            $_SESSION["gameStatus"] = "true";
+            /*$_SESSION["playerTotal"] = $_POST["playerTotal"] ?? null;*/
             redirectTo(url("../../htdocs/dice"));
             return;
         } else if ($method === "POST" && $path === "/form/view2") {
-			
-
             $_SESSION["output"] = $_POST["content"] ?? null;
-	
-			$dicereturn = new \vaaa20\Dice\Dice();
-			/*$_SESSION['lastroll'] = $dicereturn->roll();*/
-				
-			$_SESSION["playerTotal"] = $_SESSION["playerTotal"] + ($_SESSION['lastroll']*2); 
-
+            $dicereturn = new \vaaa20\Dice\Dice();
+            /*$_SESSION['lastroll'] = $dicereturn->roll();*/
+            $_SESSION["playerTotal"] = $_SESSION["playerTotal"] + ($_SESSION['lastroll']*2); 
 /*
-
-			if (($_SESSION['playerTotal']+$_SESSION['lastroll'])>21) {
-			
-            	redirectTo(url("/form/view"));
-				return;
-			}
+            if (($_SESSION['playerTotal']+$_SESSION['lastroll'])>21) {
+                redirectTo(url("/form/view"));
+                return;
+            }
 */
 
 
-			if ($_SESSION['playerTotal']>21) {
-				$computerTotal = 0;
-				$_SESSION['computerTotal'] = 0;
-            	redirectTo(url("/form/view"));
-				return;
-				
-			}
+            if ($_SESSION['playerTotal']>21) {
+                $computerTotal = 0;
+                $_SESSION['computerTotal'] = 0;
+                redirectTo(url("/form/view"));
+                return;
+            }
 			
-			$_SESSION['diceimage'] = '<img src="../src/images/'.$_SESSION['lastroll'].'.png">';
-
-
-			$_SESSION["gameStatus"] = "true";
+            $_SESSION['diceimage'] = '<img src="../src/images/'.$_SESSION['lastroll'].'.png">';
+            $_SESSION["gameStatus"] = "true";
 
 
             redirectTo(url("/dice"));

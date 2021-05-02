@@ -40,7 +40,9 @@ $message = $message ?? null;
 </form>
 <br>
 <?php 
-if(isset($_SESSION['playerTotal'])){echo "Total: ".$_SESSION['playerTotal'];}
+if (isset($_SESSION['playerTotal'])) {
+    echo "Total: ".$_SESSION['playerTotal'];
+}
 echo "<br><br>";
 ?>
 
@@ -49,8 +51,8 @@ echo "<br><br>";
 
 /*$val .= '<img src="../src/images/'.$this->getLastRoll()[$i].'.png">'.$this->getLastRollOld();*/
 $val = '<img src="../src/images/'.$_SESSION['lastroll'].'.png">';
-if(isset($_SESSION['diceimage'])){
-echo $_SESSION['diceimage'];
+if (isset($_SESSION['diceimage'])) {
+    echo $_SESSION['diceimage'];
 }
 
 
