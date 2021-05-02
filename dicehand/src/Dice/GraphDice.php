@@ -12,7 +12,7 @@ class GraphDice
     const FACES = 6;
     //const CONSTANT = 'constant value';
     //const int FACES = 6;
-    private ?int $roll = null;	
+    private ?int $roll = null;
 
     public function roll(): int
     {

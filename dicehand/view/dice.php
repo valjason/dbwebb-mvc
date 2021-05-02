@@ -6,7 +6,6 @@
 
 declare(strict_types=1);
 
-
 //use vaaa20\Dice\Dice;
 //use vaaa20\Dice\DiceHand;
 
@@ -39,9 +38,9 @@ $message = $message ?? null;
 </input>
 </form>
 <br>
-<?php 
+<?php
 if (isset($_SESSION['playerTotal'])) {
-    echo "Total: ".$_SESSION['playerTotal'];
+    echo "Total: " . $_SESSION['playerTotal'];
 }
 echo "<br><br>";
 ?>
@@ -49,8 +48,8 @@ echo "<br><br>";
 
 <?php
 
-/*$val .= '<img src="../src/images/'.$this->getLastRoll()[$i].'.png">'.$this->getLastRollOld();*/
-$val = '<img src="../src/images/'.$_SESSION['lastroll'].'.png">';
+/*$val .= '<img src="../src/images/' . $this->getLastRoll()[$i] . '.png">'.$this->getLastRollOld();*/
+$val = '<img src="../src/images/' . $_SESSION['lastroll'] . '.png">';
 if (isset($_SESSION['diceimage'])) {
     echo $_SESSION['diceimage'];
 }
