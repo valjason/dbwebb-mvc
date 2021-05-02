@@ -21,6 +21,13 @@ $message = $message ?? null;
 
 <!--<p><?= $diceHandRoll ?></p>-->
 
+<?php
+
+
+echo "<h1>Total Scoreboard:</h1> " . "<h2>Player:</h2> " . "<h3>" . $_SESSION['scoreboardPlayer'] . "</h3>" . "<h2>Computer:</h2> " . "<h3>" . $_SESSION['scoreboardComputer']."</h3>";
+
+?>
+
 <form method="post" action="form/view">
 <input type="submit" value="Hit">
 </input>
@@ -39,10 +46,13 @@ $message = $message ?? null;
 </form>
 <br>
 <?php
+
 if (isset($_SESSION['playerTotal'])) {
     echo "Total: " . $_SESSION['playerTotal'];
 }
 echo "<br><br>";
+
+
 ?>
 
 

@@ -51,7 +51,16 @@ if ($_SESSION['computerTotal'] < $_SESSION['playerTotal'] && $_SESSION['playerTo
 
 echo "<br>" . "<br>" . $result . "</br></br>";
 
-
+if ($result === "Player Wins!" || $result === "Computer Bust! Player Wins!") {
+	
+	$_SESSION['scoreboardPlayer'] += 1;
+	echo "Player Score: " . $_SESSION['scoreboardPlayer'];
+	}
+if ($result === "Computer Wins!" || $result === "Player Bust! Computer Wins!") {
+	
+	$_SESSION['scoreboardComputer'] += 1;
+	echo "Computer Score: " . $_SESSION['scoreboardComputer'];
+	}
 ?>
 <form method="post" action="../form/again">
 <input type="submit" value="Wanna play again?">
@@ -64,4 +73,8 @@ if ($_SESSION['playerTotal'] > 21) {
     $computerTotal = 0;
 }
 
-session_destroy();
+
+
+$_SESSION['playerTotal'] = 0;
+$_SESSION['computerTotal'] = 0;
+
