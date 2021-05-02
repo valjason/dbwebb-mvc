@@ -4,19 +4,15 @@ declare(strict_types=1);
 
 namespace vaaa20\Dice;
 
+use vaaa20\Dice\Dice;
+use vaaa20\Dice\DiceHand;
+
 use function Mos\Functions\{
     redirectTo,
     renderView,
     sendResponse,
     url
 };
-
-
-
-use vaaa20\Dice\Dice;
-use vaaa20\Dice\DiceHand;
-
-
 
 /**
  * Class Game.
@@ -39,10 +35,10 @@ class Game
 
         $_SESSION['lastroll'] = $die->getLastRoll();
 
-        $data["dieLastRoll"]=$die->getLastRoll();
+        $data["dieLastRoll"] = $die->getLastRoll();
 
-        $data["diceHandRoll"]=$diceHand->getLastRoll();
-        
+        $data["diceHandRoll"] = $diceHand->getLastRoll();
+
         if (isset($_SESSION['playerTotal']) && $_SESSION['playerTotal'] >= 22) {
             session_destroy();
         }
@@ -50,23 +46,24 @@ class Game
         if (!isset($_SESSION['playerTotal'])) {
             $_SESSION['playerTotal'] = 0;
         }
-		
+
         $computerTotal = 0;
-        while(true){
+        while (true) {
             if ($computerTotal > $_SESSION['playerTotal'] || $computerTotal > 21) {
                 /* Strange, if I add isset to the session variable above, computer continues to bust after a hit and stay. */
-                break; /* Computer over player, stop */	
+                break; /* Computer over player, stop */
             } else if ((isset($_SESSION['playerTotal']) < 22) && ($computerTotal > isset($_SESSION['playerTotal']))) {
                 break; /* Is the computer over the player, stop */
             } else if (isset($_SESSION['playerTotal']) > 21) {
                 $computerTotal = 0;
                 break;
                 /* player over 21, computer is 0 and stop */
-            } 
-            $computerTotal += rand(1,6);
+            }
+            $computerTotal += rand(1, 6);
         }
 
         $_SESSION['computerTotal'] = $computerTotal;
+<<<<<<< HEAD
 		
 	
 
@@ -107,6 +104,9 @@ class Game
 
 
 >>>>>>> cleaned up nicely, still some left
+=======
+        $body = renderView("layout/dice.php", $data);
+        sendResponse($body);
+>>>>>>> almost clean
     }
-
 }

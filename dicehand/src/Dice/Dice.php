@@ -23,8 +23,9 @@ class Dice
     //const CONSTANT = 'constant value';
     //const int FACES = 6;
 
-    public function roll(): int {
-		$this->roll = rand(1, self::FACES);
+    public function roll(): int
+    {
+        $this->roll = rand(1, self::FACES);
 
         return $this->roll;
     }
@@ -37,9 +38,11 @@ class Dice
 =======
 =======
         return $this->roll;
+<<<<<<< HEAD
 >>>>>>> cleaned up nicely, still some left
 
 >>>>>>> small change
+=======
+>>>>>>> almost clean
     }
-
 }

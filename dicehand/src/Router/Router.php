@@ -2,20 +2,15 @@
 
 declare(strict_types=1);
 
-
 namespace vaaa20\Dice;
+namespace Mos\Router;
+
+use vaaa20\Dice\Dice;
+use vaaa20\Dice\DiceHand;
 
 use function vaaa20\Dice\Dice\{
     getLastRoll
-
 };
-
-use vaaa20\Dice\Dice;
-
-use vaaa20\Dice\DiceHand;
-
-namespace Mos\Router;
-
 use function Mos\Functions\{
     destroySession,
     redirectTo,
@@ -24,7 +19,6 @@ use function Mos\Functions\{
     sendResponse,
     url
 };
-
 
 /**
  * Class Router.
@@ -99,11 +93,9 @@ class Router
 
             $dicereturn = new \vaaa20\Dice\Dice();
             /*$_SESSION['lastroll'] = $dicereturn->roll();*/
-            $_SESSION["playerTotal"] = $_SESSION["playerTotal"] + $_SESSION['lastroll']; 
-
-
+            $_SESSION["playerTotal"] = $_SESSION["playerTotal"] + $_SESSION['lastroll'];
 /*
-            if (($_SESSION['playerTotal']+$_SESSION['lastroll'])>=21) {	
+            if (($_SESSION['playerTotal']+$_SESSION['lastroll'])>=21) {
                 redirectTo(url("/form/view"));
                 return;
             }
@@ -115,13 +107,13 @@ class Router
             }
             */
 
-            if ($_SESSION['playerTotal']>21) {
+            if ($_SESSION['playerTotal'] > 21) {
                 $computerTotal = 0;
                 $_SESSION['computerTotal'] = 0;
                 redirectTo(url("/form/view"));
                 return;
             }
-            $_SESSION['diceimage'] = '<img src="../src/images/'.$_SESSION['lastroll'].'.png">';
+            $_SESSION['diceimage'] = '<img src="../src/images/' . $_SESSION['lastroll'] . '.png">';
             $_SESSION["gameStatus"] = "true";
             redirectTo(url("/dice"));
             return;
@@ -148,29 +140,29 @@ class Router
             $_SESSION["output"] = $_POST["content"] ?? null;
             $dicereturn = new \vaaa20\Dice\Dice();
             /*$_SESSION['lastroll'] = $dicereturn->roll();*/
-            $_SESSION["playerTotal"] = $_SESSION["playerTotal"] + ($_SESSION['lastroll']*2); 
+            $_SESSION["playerTotal"] = $_SESSION["playerTotal"] + ($_SESSION['lastroll'] * 2);
 /*
-            if (($_SESSION['playerTotal']+$_SESSION['lastroll'])>21) {
+            if (($_SESSION['playerTotal']+$_SESSION['lastroll']) > 21) {
                 redirectTo(url("/form/view"));
                 return;
             }
 */
 
 
-            if ($_SESSION['playerTotal']>21) {
+            if ($_SESSION['playerTotal'] > 21) {
                 $computerTotal = 0;
                 $_SESSION['computerTotal'] = 0;
                 redirectTo(url("/form/view"));
                 return;
             }
-			
-            $_SESSION['diceimage'] = '<img src="../src/images/'.$_SESSION['lastroll'].'.png">';
+
+            $_SESSION['diceimage'] = '<img src="../src/images/' . $_SESSION['lastroll'] . '.png">';
             $_SESSION["gameStatus"] = "true";
 
 
             redirectTo(url("/dice"));
             return;
-        } 
+        }
 
         $data = [
             "header" => "404",
