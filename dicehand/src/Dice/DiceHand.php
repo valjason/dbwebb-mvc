@@ -19,41 +19,41 @@ namespace vaaa20\Dice;
 class DiceHand
 {
 
-	private array $dices;
-	private int $sum;
+    private array $dices;
+    private int $sum;
 
     public function __construct()
     {
 
-		for ($i = 0; $i <= 3; $i++) {
-			$this->dices[$i] = new Dice();
-		}
+        for ($i = 0; $i <= 3; $i++) {
+            $this->dices[$i] = new Dice();
+        }
 
-	}
+    }
 
     public function roll(): void
-	{
-		$len = count($this->dices);
+    {
+        $len = count($this->dices);
 
-		$this->sum = 0;
-		for ($i = 0; $i <= 3; $i++) {
-			$this->sum += $this->dices[$i]->roll();
-		}
-	}
-		//$this->roll = rand(1, self::FACES);
+        $this->sum = 0;
+        for ($i = 0; $i <= 3; $i++) {
+            $this->sum += $this->dices[$i]->roll();
+        }
+    }
+        //$this->roll = rand(1, self::FACES);
 
-		//return $this->roll;
+        //return $this->roll;
     //}
 
-	public function getLastRoll(): string
+    public function getLastRoll(): string
     {
 
-		$res = "";
-		for ($i = 0; $i <= 3; $i++) {
-			$res .= $this->dices[$i]->getLastRoll() . ", ";
-		}		
+        $res = "";
+        for ($i = 0; $i <= 3; $i++) {
+            $res .= $this->dices[$i]->getLastRoll() . ", ";
+        }		
 
-		return $res . " = " . $this->sum;
+        return $res . " = " . $this->sum;
     }
 
 }

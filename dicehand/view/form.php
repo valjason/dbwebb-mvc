@@ -29,23 +29,26 @@ while($computerTotal<=21){
     }
 }
 */
-if(!isset($_SESSION['playerTotal'])){$_SESSION['playerTotal'] = 0;}
+if (!isset($_SESSION['playerTotal'])) {
+    $_SESSION['playerTotal'] = 0;
+}
 
 echo "Player: ".$_SESSION['playerTotal']." points"."<br><br>";
 echo "Computer: ".$_SESSION['computerTotal']." points";
 
 
-if ($_SESSION['computerTotal'] < $_SESSION['playerTotal'] && $_SESSION['playerTotal'] <= 21)
-{$result = "Player Wins!";}
-else if($_SESSION['playerTotal']<$_SESSION['computerTotal'] && $_SESSION['computerTotal']<=21){
-$result = "Computer Wins!";
+if ($_SESSION['computerTotal'] < $_SESSION['playerTotal'] && $_SESSION['playerTotal'] <= 21) {
+    $result = "Player Wins!";
+} else if ($_SESSION['playerTotal']<$_SESSION['computerTotal'] && $_SESSION['computerTotal']<=21) {
+    $result = "Computer Wins!";
 } else if ($_SESSION['computerTotal']>21 && $_SESSION['playerTotal']<=21) {
     $result = "Computer Bust! Player Wins!";
 } else if ($_SESSION['playerTotal']>21 && $_SESSION['computerTotal']<=21) {
     $result = "Player Bust! Computer Wins!";
 } else if ($_SESSION['playerTotal'] && $_SESSION['computerTotal'] > 21) {
-	$result = "Logic Error - Contact Developer";
-}	
+    $result = "Logic Error - Contact Developer";
+}
+
 echo "<br>"."<br>".$result."</br></br>";
 
 
@@ -56,10 +59,9 @@ echo "<br>"."<br>".$result."</br></br>";
 </form>
 
 <?php
-if($_SESSION['playerTotal']>21) {
-
-$_SESSION['computerTotal'] = 0;
-$computerTotal = 0;
-
+if ($_SESSION['playerTotal']>21) {
+    $_SESSION['computerTotal'] = 0;
+    $computerTotal = 0;
 }
+
 session_destroy();

@@ -20,18 +20,18 @@ class Dice
 {
     const FACES = 6;
     private ?int $roll = null;
-	//const CONSTANT = 'constant value';
-	//const int FACES = 6;
+    //const CONSTANT = 'constant value';
+    //const int FACES = 6;
 
     public function roll(): int {
 		$this->roll = rand(1, self::FACES);
 
-		return $this->roll;
+        return $this->roll;
     }
 
-	public function getLastRoll(): int
+    public function getLastRoll(): int
     {
-		return $this->roll;
+        return $this->roll;
 
     }
 
