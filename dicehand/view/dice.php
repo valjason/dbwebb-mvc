@@ -16,16 +16,27 @@ $message = $message ?? null;
 ?><h1><?= $header ?></h1>
 <!--<p>TOP</p>-->
 
-
+<?php
+if (($_SESSION['scoreboardPlayer'] <= 0) && ($_SESSION['scoreboardComputer'] <= 0)) {
+?>
 <p><?= $message ?></p>
-
+<?php
+}
+?>
 <!--<p><?= $diceHandRoll ?></p>-->
+
+
+<form method="post" action="ng">
+<input type="submit" value="New Game">
+</input>
+
+</form>
 
 <?php
 
-
-echo "<h1>Total Scoreboard:</h1> " . "<h2>Player:</h2> " . "<h3>" . $_SESSION['scoreboardPlayer'] . "</h3>" . "<h2>Computer:</h2> " . "<h3>" . $_SESSION['scoreboardComputer']."</h3>";
-
+if (($_SESSION['scoreboardPlayer'] > 0) || ($_SESSION['scoreboardComputer'] > 0)) {
+echo "<h1>Total Scoreboard:</h1> " . "<h2>Player: " . $_SESSION['scoreboardPlayer'] . "</h2>" . "<h2>Computer: " . $_SESSION['scoreboardComputer']."</h2>";
+}
 ?>
 
 <form method="post" action="form/view">
@@ -48,7 +59,7 @@ echo "<h1>Total Scoreboard:</h1> " . "<h2>Player:</h2> " . "<h3>" . $_SESSION['s
 <?php
 
 if (isset($_SESSION['playerTotal'])) {
-    echo "Total: " . $_SESSION['playerTotal'];
+    echo "Sum: " . $_SESSION['playerTotal'];
 }
 echo "<br><br>";
 

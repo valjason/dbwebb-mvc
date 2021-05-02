@@ -122,6 +122,11 @@ class Router
             $_SESSION["gameStatus"] = "false";
             redirectTo(url("/dice"));
             return;
+		} else if ($method === "POST" && $path === "/ng") {
+			$_SESSION['scoreboardPlayer'] = 0;
+			$_SESSION['scoreboardComputer'] = 0;
+            redirectTo(url("/dice"));
+            return;
         } else if ($method === "POST" && $path === "/form/new") {
             /*
             $_SESSION["output"] = $_POST["content"] ?? null;

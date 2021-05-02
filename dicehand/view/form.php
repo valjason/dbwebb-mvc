@@ -10,6 +10,7 @@ $header = $header ?? null;
 $message = $message ?? null;
 $action = $action ?? null;
 $output = $output ?? null;
+$result = "";
 
 echo "<br><br>";
 ?>
@@ -59,7 +60,7 @@ if ($result === "Player Wins!" || $result === "Computer Bust! Player Wins!") {
 if ($result === "Computer Wins!" || $result === "Player Bust! Computer Wins!") {
 	
 	$_SESSION['scoreboardComputer'] += 1;
-	echo "Computer Score: " . $_SESSION['scoreboardComputer'];
+	/*echo "Computer Score: " . $_SESSION['scoreboardComputer'];*/
 	}
 ?>
 <form method="post" action="../form/again">
@@ -77,4 +78,3 @@ if ($_SESSION['playerTotal'] > 21) {
 
 $_SESSION['playerTotal'] = 0;
 $_SESSION['computerTotal'] = 0;
-
