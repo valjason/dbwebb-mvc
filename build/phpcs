@@ -1,0 +1,57 @@
+
+FILE: /Users/valle/dbwebb-kurser/mvc/me/game/view/dice.php
+--------------------------------------------------------------------------------
+FOUND 5 ERRORS AFFECTING 3 LINES
+--------------------------------------------------------------------------------
+ 21 | ERROR | [x] Line indented incorrectly; expected 4 spaces, found 0
+ 23 | ERROR | [x] Line indented incorrectly; expected at least 4 spaces, found
+    |       |     0
+ 38 | ERROR | [x] Line indented incorrectly; expected at least 4 spaces, found
+    |       |     0
+ 38 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 38 | ERROR | [x] Expected at least 1 space after "."; 0 found
+--------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 5 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+--------------------------------------------------------------------------------
+
+
+FILE: /Users/valle/dbwebb-kurser/mvc/me/game/view/form.php
+--------------------------------------------------------------------------------
+FOUND 16 ERRORS AFFECTING 10 LINES
+--------------------------------------------------------------------------------
+ 55 | ERROR | [x] Blank line found at start of control structure
+ 56 | ERROR | [x] Spaces must be used to indent lines; tabs are not allowed
+ 56 | ERROR | [x] Whitespace found at end of line
+ 57 | ERROR | [x] Spaces must be used to indent lines; tabs are not allowed
+ 58 | ERROR | [x] Spaces must be used to indent lines; tabs are not allowed
+ 59 | ERROR | [x] Spaces must be used to indent lines; tabs are not allowed
+ 59 | ERROR | [x] Line indented incorrectly; expected 0 spaces, found 4
+ 59 | ERROR | [x] Closing brace indented incorrectly; expected 0 spaces, found
+    |       |     4
+ 60 | ERROR | [x] Blank line found at start of control structure
+ 61 | ERROR | [x] Spaces must be used to indent lines; tabs are not allowed
+ 61 | ERROR | [x] Whitespace found at end of line
+ 62 | ERROR | [x] Spaces must be used to indent lines; tabs are not allowed
+ 63 | ERROR | [x] Spaces must be used to indent lines; tabs are not allowed
+ 64 | ERROR | [x] Spaces must be used to indent lines; tabs are not allowed
+ 64 | ERROR | [x] Line indented incorrectly; expected 0 spaces, found 4
+ 64 | ERROR | [x] Closing brace indented incorrectly; expected 0 spaces, found
+    |       |     4
+--------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 16 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+--------------------------------------------------------------------------------
+
+
+FILE: /Users/valle/dbwebb-kurser/mvc/me/game/src/Router/Router.php
+-----------------------------------------------------------------------------
+FOUND 3 ERRORS AFFECTING 3 LINES
+-----------------------------------------------------------------------------
+ 125 | ERROR | [x] Spaces must be used to indent lines; tabs are not allowed
+ 126 | ERROR | [x] Spaces must be used to indent lines; tabs are not allowed
+ 127 | ERROR | [x] Spaces must be used to indent lines; tabs are not allowed
+-----------------------------------------------------------------------------
+PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+-----------------------------------------------------------------------------
+
+Time: 285ms; Memory: 8MB
+
