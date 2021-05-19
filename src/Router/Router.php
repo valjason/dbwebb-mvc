@@ -7,6 +7,7 @@ namespace Mos\Router;
 
 use vaaa20\Dice\Dice;
 use vaaa20\Dice\DiceHand;
+use vaaa20\Dice\Game as Game;
 
 use function vaaa20\Dice\Dice\{
     getLastRoll
@@ -35,19 +36,19 @@ class Router
             $body = renderView("layout/page.php", $data);
             sendResponse($body);
             return;
-        } else if ($method === "GET" && $path === "/session") {
+        } elseif ($method === "GET" && $path === "/session") {
             $body = renderView("layout/session.php");
             sendResponse($body);
             return;
-        } else if ($method === "GET" && $path === "/session/destroy") {
+        } elseif ($method === "GET" && $path === "/session/destroy") {
             destroySession();
             redirectTo(url("/session"));
             return;
-        } else if ($method === "GET" && $path === "/debug") {
+        } elseif ($method === "GET" && $path === "/debug") {
             $body = renderView("layout/debug.php");
             sendResponse($body);
             return;
-        } else if ($method === "GET" && $path === "/twig") {
+        } elseif ($method === "GET" && $path === "/twig") {
             $data = [
                 "header" => "Twig page",
                 "message" => "Hey, edit this to do it youreself!",
@@ -55,7 +56,7 @@ class Router
             $body = renderTwigView("index.html", $data);
             sendResponse($body);
             return;
-        } else if ($method === "GET" && $path === "/some/where") {
+        } elseif ($method === "GET" && $path === "/some/where") {
             $data = [
                 "header" => "Rainbow page",
                 "message" => "Hey, edit this to do it youreself!",
@@ -63,7 +64,7 @@ class Router
             $body = renderView("layout/page.php", $data);
             sendResponse($body);
             return;
-        } else if ($method === "GET" && $path === "/dice") {
+        } elseif ($method === "GET" && $path === "/dice") {
             //$data = [
                 //"header" => "Dice",
                 //"message" => "Hey, edit this to do it youreself!",
@@ -71,10 +72,10 @@ class Router
             //$body = renderView("layout/dice.php", $data);
             //sendResponse($body);
             //return;
-            $callable = new \vaaa20\Dice\Game();
+            $callable = new Game();
             $callable->playGame();
             return;
-        } else if ($method === "GET" && $path === "/form/view") {
+        } elseif ($method === "GET" && $path === "/form/view") {
             $data = [
                 "header" => "Form",
                 "message" => "Press submit to send the message to the result page.",
@@ -84,11 +85,11 @@ class Router
             $body = renderView("layout/form.php", $data);
             sendResponse($body);
             return;
-        } else if ($method === "POST" && $path === "/form/process") {
+        } elseif ($method === "POST" && $path === "/form/process") {
             $_SESSION["output"] = $_POST["content"] ?? null;
             redirectTo(url("/form/view"));
             return;
-        } else if ($method === "POST" && $path === "/form/view") {
+        } elseif ($method === "POST" && $path === "/form/view") {
             $_SESSION["output"] = $_POST["content"] ?? null;
 
             /*$dicereturn = new \vaaa20\Dice\Dice();*/
@@ -117,17 +118,17 @@ class Router
             $_SESSION["gameStatus"] = "true";
             redirectTo(url("/dice"));
             return;
-        } else if ($method === "POST" && $path === "/form/stop") {
+        } elseif ($method === "POST" && $path === "/form/stop") {
             $_SESSION["output"] = $_POST["content"] ?? null;
             $_SESSION["gameStatus"] = "false";
             redirectTo(url("/dice"));
             return;
-		} else if ($method === "POST" && $path === "/ng") {
-			$_SESSION['scoreboardPlayer'] = 0;
-			$_SESSION['scoreboardComputer'] = 0;
+        } elseif ($method === "POST" && $path === "/ng") {
+            $_SESSION['scoreboardPlayer'] = 0;
+            $_SESSION['scoreboardComputer'] = 0;
             redirectTo(url("/dice"));
             return;
-        } else if ($method === "POST" && $path === "/form/new") {
+        } elseif ($method === "POST" && $path === "/form/new") {
             /*
             $_SESSION["output"] = $_POST["content"] ?? null;
             $_SESSION["gameStatus"] = "true";
@@ -135,13 +136,13 @@ class Router
             /*$_SESSION["playerTotal"] = $_POST["playerTotal"] ?? null;*/
             redirectTo(url("/form/view"));
             return;
-        } else if ($method === "POST" && $path === "/form/again") {
+        } elseif ($method === "POST" && $path === "/form/again") {
             $_SESSION["output"] = $_POST["content"] ?? null;
             $_SESSION["gameStatus"] = "true";
             /*$_SESSION["playerTotal"] = $_POST["playerTotal"] ?? null;*/
             redirectTo(url("../../htdocs/dice"));
             return;
-        } else if ($method === "POST" && $path === "/form/view2") {
+        } elseif ($method === "POST" && $path === "/form/view2") {
             $_SESSION["output"] = $_POST["content"] ?? null;
             /*$dicereturn = new \vaaa20\Dice\Dice();*/
             /*$_SESSION['lastroll'] = $dicereturn->roll();*/
@@ -171,7 +172,8 @@ class Router
 
         $data = [
             "header" => "404",
-            "message" => "The page you are requesting is not here. You may also checkout the HTTP response code, it should be 404.",
+            "message" => "The page you are requesting is not here." +
+            "You may also checkout the HTTP response code, it should be 404.",
         ];
         $body = renderView("layout/page.php", $data);
         sendResponse($body, 404);

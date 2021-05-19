@@ -17,7 +17,7 @@ RewriteRule (.*) - [NC,L]
 #RewriteRule ^image/(.*)$ /~vaaa20/dbwebb-kurser/mvc/me/game/htdocs/cimage/#img.php?src=$1 [QSA,NC,L]
 
 RewriteCond %{HTTP_HOST} ^www\.student\.bth\.se$ [NC]
-RewriteRule (.*) /~vaaa20/dbwebb-kurser/mvc/me/game/dicehand/htdocs/index.php/$1 [NC,L]
+RewriteRule (.*) /~vaaa20/dbwebb-kurser/mvc/me/game/htdocs/index.php/$1 [NC,L]
 
 
 # Rewrite 2 - For other requests

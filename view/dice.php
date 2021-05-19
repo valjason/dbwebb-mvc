@@ -18,9 +18,9 @@ $message = $message ?? null;
 
 <?php
 if (($_SESSION['scoreboardPlayer'] <= 0) && ($_SESSION['scoreboardComputer'] <= 0)) {
-?>
+    ?>
 <p><?= $message ?></p>
-<?php
+    <?php
 }
 ?>
 <!--<p><?= $diceHandRoll ?></p>-->
@@ -35,7 +35,8 @@ if (($_SESSION['scoreboardPlayer'] <= 0) && ($_SESSION['scoreboardComputer'] <= 
 <?php
 
 if (($_SESSION['scoreboardPlayer'] > 0) || ($_SESSION['scoreboardComputer'] > 0)) {
-echo "<h1>Total Scoreboard:</h1> " . "<h2>Player: " . $_SESSION['scoreboardPlayer'] . "</h2>" . "<h2>Computer: " . $_SESSION['scoreboardComputer']."</h2>";
+    echo "<h1>Total Scoreboard:</h1> " . "<h2>Player: " .
+    $_SESSION['scoreboardPlayer'] . "</h2>" . "<h2>Computer: " . $_SESSION['scoreboardComputer'] . "</h2>";
 }
 ?>
 
