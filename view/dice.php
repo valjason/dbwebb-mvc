@@ -17,6 +17,14 @@ $message = $message ?? null;
 <!--<p>TOP</p>-->
 
 <?php
+if (!isset($_SESSION['scoreboardPlayer'])) {
+    $_SESSION['scoreboardPlayer'] = 0;
+}
+
+if (!isset($_SESSION['scoreboardComputer'])) {
+    $_SESSION['scoreboardComputer'] = 0;
+}
+
 if (($_SESSION['scoreboardPlayer'] <= 0) && ($_SESSION['scoreboardComputer'] <= 0)) {
     ?>
 <p><?= $message ?></p>
